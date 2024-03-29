@@ -11,7 +11,7 @@ Provisional, experimental Mogan STEM Suite release/pre-release packaging.
 As dependencies:
 
 - [ ] Lolly (a library for GNU TeXmacs) `lolly`.
-- [ ] s7 Scheme `s7`
+- [x] s7 Scheme `s7`
 
 ## Testing
 

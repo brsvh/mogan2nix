@@ -1,8 +1,6 @@
 #!/usr/bin/env sh
 #! nix-shell -i bash -p nix-prefetch-git jq
 
-set -xe
-
 repo="https://cm-gitlab.stanford.edu/bil/s7.git"
 
 oldrev=$(cat rev.nix)

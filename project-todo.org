@@ -7,8 +7,6 @@
 
 ** TODO packaging Mogan Research
 
-*** TODO packaging s7
-
 *** TODO packaging lolly
 
 ** TODO PR to NixOS/nixpkgs
