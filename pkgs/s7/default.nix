@@ -8,7 +8,7 @@
 stdenv.mkDerivation {
   pname = "s7";
 
-  version = "unstable";
+  version = import ./version.nix;
 
   meta = {
     description = "A Scheme interpreter";
@@ -31,9 +31,10 @@ stdenv.mkDerivation {
 
   src = fetchgit {
     url = "https://cm-gitlab.stanford.edu/bil/s7.git";
-    rev = "2d859c3562f095037fdb2e58fb340deefcdf5aff";
-    hash = "sha256-15ZPas6tDsmO3igFHGZoSx3TYMZdvt3c8CYjxFQCgj4=";
+    rev = import ./rev.nix;
+    hash = import ./hash.nix;
   };
+
 
   buildInputs = [
     makeWrapper
@@ -70,4 +71,6 @@ stdenv.mkDerivation {
     makeWrapper $out/bin/s7-unwrapped $out/bin/s7 \
       --chdir $out/share/s7
   '';
+
+  passthru.updateScript = ./update.sh;
 }

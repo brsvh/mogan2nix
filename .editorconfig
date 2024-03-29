@@ -17,3 +17,6 @@ trim_trailing_whitespace = false
 
 [*.nix]
 tab_width = 2
+
+[*.sh]
+tab_width = 4
