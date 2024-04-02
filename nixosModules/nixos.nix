@@ -1,9 +1,1 @@
-let
-  overlay = import ../pkgs;
-in {
-  nixpkgs = {
-    overlays = [
-      overlay
-    ];
-  };
-}
+let overlay = import ../pkgs; in { nixpkgs.overlays = [ overlay ]; }

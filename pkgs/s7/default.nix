@@ -1,10 +1,4 @@
-{
-  fetchgit,
-  lib,
-  makeWrapper,
-  stdenv,
-  ...
-}:
+{ fetchgit, lib, makeWrapper, stdenv, ... }:
 stdenv.mkDerivation {
   pname = "s7";
 
@@ -35,21 +29,11 @@ stdenv.mkDerivation {
     hash = import ./hash.nix;
   };
 
+  buildInputs = [ makeWrapper ];
 
-  buildInputs = [
-    makeWrapper
-  ];
+  env.NIX_CFLAGS_COMPILE = toString [ "-Wl,-export-dynamic" "-I." "-fPIC" ];
 
-  env.NIX_CFLAGS_COMPILE = toString [
-    "-Wl,-export-dynamic"
-    "-I."
-    "-fPIC"
-  ];
-
-  NIX_CFLAGS_LINK = [
-    "-ldl"
-    "-lm"
-  ];
+  NIX_CFLAGS_LINK = [ "-ldl" "-lm" ];
 
   buildPhase = ''
     # compile libs7.so
